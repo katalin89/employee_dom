@@ -2,9 +2,11 @@ function createCard(obj){
     let div=document.createElement("div");
     div.classList.add('card');
 
-    let imagine=document.createElement("img");
-    imagine.classList.add('img');
+   
 
+    let imagine=document.createElement("img");
+    imagine.classList.a
+    imagine.classList.add('image');
     imagine.src=obj.picture.medium;
 
     div.appendChild(imagine);
@@ -23,31 +25,17 @@ function createCard(obj){
 
     let data=document.createElement("footer");
     data.classList.add('data');
-    data.textContent=obj.registered.date;
+    data.textContent=obj.data;
 
-    div.appendChild(data);
 
     return div;
 
 }
 
-function attachCard(arr){
-let container=document.querySelector(".container");
-for(let i=0;i<arr.length;i++){
-    container.appendChild(createCard(arr[i]));
-}
-
-}
-
-
-function createButton(){
-let div=document.createElement("div");
-div.classList("buttons");
-
-let button1=document.createElement("button");
-
-button1.classList.add("button");
-
-div.appendChild(button1);
+function attachCards(arr){
+    let container=document.querySelector(".container")
+    for(let i=0;i<arr.length;i++){
+        container.appendChild(createCard(arr[i]));
+    }
 }
 
