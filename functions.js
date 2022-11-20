@@ -1,8 +1,6 @@
 function createCard(obj){
     let div=document.createElement("div");
-    div.classList.add('card');
-
-   
+    div.classList.add('card');   
 
     let imagine=document.createElement("img");
     imagine.classList.a
@@ -27,9 +25,7 @@ function createCard(obj){
     data.classList.add('data');
     data.textContent=obj.data;
 
-
     return div;
-
 }
 
 function attachCards(arr){
@@ -47,10 +43,7 @@ function createButton(){
     btn.classList.add('button');
     btn.textContent=[];
     div.appendChild(btn)
-
     return div;
-
-
 }
 
 //o functie ce primeste ca parametru un numar si afiseaza atatea butoane cate am dat in parametru
@@ -61,14 +54,36 @@ function createButtons(nr){
         const element=createButton();
         element.textContent=i;
         container.appendChild(element);
+        element.addEventListener('click',()=> { 
+            pages(data,i);
+        });
     }
 }
 
 
-// function pages(arr,page){
-//     let arrNou=[];
-//     for(let i=0+page*9;i<page*9;i++){
-//         arrNou.push
-//     }
+function pages(arr,page){
+    let container = document.querySelector('.container');
+    let arrNou=[];
+    
+    for(let i=0+(page-1)*9;i<page*9;i++){
+        arrNou.push(arr[i]);
+    }
 
-// }
+    removeAllChildNodes(container);
+
+    for (let i=0;i<arrNou.length;i++){
+        container.appendChild(createCard(arrNou[i]));
+    }
+
+}
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+function load(){
+    pages(data,1);
+    createButtons(5);
+}
