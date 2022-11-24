@@ -3,7 +3,7 @@ function createCard(obj){
     div.classList.add('card');   
 
     let imagine=document.createElement("img");
-    imagine.classList.a
+   
     imagine.classList.add('image');
     imagine.src=obj.picture.medium;
 
@@ -86,4 +86,44 @@ function removeAllChildNodes(parent) {
 function load(){
     pages(data,1);
     createButtons(5);
+}
+
+
+function returnObiect(arr,name){
+    for(let i=0;i<arr.length;i++){
+        if(arr[i].name.first==name){
+            return arr[i];
+        }
+    }
+
+    return -1;
+}
+
+function cretaeCardModal(){
+    let div=document.createElement("div");
+    div.classList.add('employee');
+
+    let imagine=document.createElement('img');
+    imagine.classList.add('image');
+    div.appendChild(imagine);
+
+    let  nume=document.createElement('h1');
+    nume.classList.add('name');
+    div.appendChild(nume);
+
+    let email=document.createElement('p');
+    email.classList.add('email');
+    div.appendChild()
+    
+
+    return div;
+
+}
+function addModal(obj){
+    let container=document.querySelector(".modal");
+    
+    container.classList.remove("hide");
+
+    container.appendChild(obj);
+
 }
