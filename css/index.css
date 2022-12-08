@@ -170,7 +170,8 @@ button{
 
 .delete-container{
     display: flex;
-    border: 2px solid red;
+    
+  
 }
 .delete{
     display: flex;
@@ -182,4 +183,31 @@ button{
 
     
 } 
+.inputs{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+
+
+
+.delUp{
+    display: flex;
+    flex-direction: row;
+  
+    gap:10px
+}
+
+.update{
+
+    display: flex;
+   
+    background-color: rgb(58, 58, 81);
+    color: white;
+    justify-content: flex-end;
+
+}
+
+
 

@@ -31,14 +31,29 @@ function createCard(obj){
     let div4=document.createElement('div');
     div.classList.add('delete-container')
 
+    let divDelUp=document.createElement('div');
+    divDelUp.classList.add('delUp');
+
     let btnDelete=document.createElement("button");
     btnDelete.classList.add("delete");
  
     btnDelete.textContent="Delete";
 
+    divDelUp.appendChild(btnDelete);
+
+    let btnUpdate=document.createElement("button");
+    btnUpdate.classList.add("update");
+
+    btnUpdate.textContent="Update";
+
+    divDelUp.appendChild(btnUpdate);
+
+    div.appendChild(divDelUp)
+    
 
 
-    div4.appendChild(btnDelete);
+
+    
 
     div.appendChild(div4);
 
@@ -248,14 +263,11 @@ function addModal(obj){
 }
 
 //returneaza obiectul dupa nume si prenume
-//Ficat Kati
+
 function returnObj(arr,name){
     for(let i=0;i<arr.length;i++){
 
         let numePers=arr[i].name.first+" "+arr[i].name.last
-
-        console.log(numePers);
-        console.log(name);
         if(numePers==name)
                return arr[i];
     }
@@ -263,36 +275,33 @@ function returnObj(arr,name){
     return -1;
 }
 
-let listContainer=document.querySelector(".container");
-let btnDelete=document.createElement("button");
-listContainer.addEventListener("click",(e)=>{
-    let ob=e.target;
 
-    if(ob.classList.contains("delete")){
-        let div=ob.parentNode.parentNode;
-        listContainer.removeChild(div);
+function sterge(arr,name){
+
+    let filt=[];
+    for(let i=0;i<arr.length;i++){
+        if(arr[i].name.first!==name){
+
+            filt.push(arr[i]);
+
+        }
     }
-})
 
+    return filt;
+}
 
-/*
-let btnAdd=document.querySelector('.add');
-let inp=document.getElementById('element');
-let inp2=document.getElementById('elementPrice');
-let listContainer=document.querySelector(".container");
-
-
-
-let btnDelete=document.createElement("button");
-
-listContainer.addEventListener("click",(e)=>{
-    let ob=e.target;
-
-    if(ob.classList.contains("delete")){
-        let div=ob.parentNode.parentNode;
-        listContainer.removeChild(div);
-        
+function updtateObject(arr,name,obj){
+    for(let i=0;i<arr.length;i++){
+        if(arr[i].name.first==name){
+            arr[i]=obj;
+        }
     }
-})*/
+    return arr;
+}
 
-//cand apasam pe x sa incida modalul
+
+
+
+
+
+
